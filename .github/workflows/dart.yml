@@ -32,3 +32,4 @@ jobs:
           git add pubspec.yaml
           git commit -m "Release version $newVersion" -a
           git push origin master
+          
