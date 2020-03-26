@@ -14,3 +14,14 @@
 ## 1.0.3
 
 * New library file
+
+## 1.0.4
+
+* New library file
+
+## 1.0.5
+
+git diff-tree --no-commit-id --name-only
+
+## 1.0.6
+
