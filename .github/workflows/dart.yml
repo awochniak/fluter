@@ -20,6 +20,7 @@ jobs:
           git config core.autocrlf true
           git config core.filemode false   
           git show --stat
+          git --version 
 
       - name: Update plugin version
         run: |
