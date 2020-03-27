@@ -26,6 +26,7 @@ jobs:
           fileName=$(git log --name-only --oneline HEAD --format= | grep -v '.{7} ')
           fileName2=$(git show --pretty="" --name-only $git_hash)     
           
+          
           echo "$commit_msg"
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
 
