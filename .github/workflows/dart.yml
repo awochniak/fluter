@@ -15,7 +15,7 @@ jobs:
       
       - name: Update plugin version
         env:
-          commit_msg: ${{ (github.event.commits[0]) }}
+          commit_msg: ${{ (github.event.commits[0].message) }}
         run: |
           version=$(grep -A 0 'version:' pubspec.yaml | sed 's/^.*: //')
           lastNumber=$(echo $version | grep -Eo '[0-9]+$')
