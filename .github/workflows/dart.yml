@@ -17,8 +17,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
         run: |
-          git checkout -b mastert origin/master
-          git show --pretty="" --name-only $GITHUB_CONTEXT     
+          git log --name-only
+     
 
       - name: Update plugin version
         run: |
