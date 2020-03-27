@@ -27,6 +27,8 @@ jobs:
           info=$(echo ${commit_msg//[[:blank:]]/} | cut -d ':' -f2)
           platform=$(echo $info | cut -d ',' -f1)
           version=$(echo $info | cut -d ',' -f2)
+          
+          echo $info
 
           echo "" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
