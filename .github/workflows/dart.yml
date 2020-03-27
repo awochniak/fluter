@@ -17,7 +17,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
         run: |
-          git log --name-only
+          git show --stat $GITHUB_CONTEXT
+
      
 
       - name: Update plugin version
