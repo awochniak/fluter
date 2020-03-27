@@ -17,6 +17,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
         run: |
+          git config --unset core.filemode
+          git config --global core.filemode false
           git show -U99999
 
 
