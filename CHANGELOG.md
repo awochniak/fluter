@@ -1522,3 +1522,8 @@ Date:   Fri Mar 27 09:42:55 2020 +0100
  pubspec.yaml                                       |   25 +
  test.txt                                           |    1 +
  178 files changed, 7049 insertions(+)
+
+
+## 1.0.22
+
+
