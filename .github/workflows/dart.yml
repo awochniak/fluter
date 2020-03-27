@@ -29,7 +29,9 @@ jobs:
           version=$(echo $info | cut -d ',' -f2)
           
           echo $info
-
+          echo $platform
+          echo $version
+          
           echo "" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           echo -n "## " >> CHANGELOG.md
