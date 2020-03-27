@@ -18,7 +18,7 @@ jobs:
           lastNumber=$(echo $version | grep -Eo '[0-9]+$')
           lastNumber=$((lastNumber+1))
           newVersion=$(echo "${version%.*}.${lastNumber}")
-          fileName=$(git log --name-only --oneline -1 --format= | grep -v '.{7} ')
+          fileName=$(git log --name-only --oneline HEAD --format= | grep -v '.{7} ')
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
 
           echo "" >> CHANGELOG.md
