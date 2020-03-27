@@ -24,6 +24,7 @@ jobs:
           fileName2=$(git show --pretty="" --name-only $git_hash)
           fileName3=$(git diff-tree --no-commit-id --name-only -r $git_hash)
           
+          git diff-tree --no-commit-id --name-only -r $git_hash
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
 
           echo "" >> CHANGELOG.md
