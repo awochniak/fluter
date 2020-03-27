@@ -49,3 +49,9 @@
 
 ## 1.0.48 - Android,  2.4.5
 
+
+
+## 1.0.49
+
+* Add new library for Android, version:  3.4.1
+
