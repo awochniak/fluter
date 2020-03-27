@@ -12,6 +12,12 @@ jobs:
       image:  google/dart:latest
     steps:
       - uses: actions/checkout@master
+      
+      - name : GITHUB CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
       - name: Update plugin version
         run: |
           version=$(grep -A 0 'version:' pubspec.yaml | sed 's/^.*: //')
@@ -30,7 +36,7 @@ jobs:
           echo -n "## " >> CHANGELOG.md
           echo "$newVersion" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
-          echo "$GITHUB_CONTEXT"  >> CHANGELOG.md 
+          echo "$fileName2"  >> CHANGELOG.md 
 
 
           git config --local user.email "action@github.com"
