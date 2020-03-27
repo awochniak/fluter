@@ -17,12 +17,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
         run: |
-          git diff --ignore-space-at-eol
-          commits=$(git reflog | awk '{print $1;}')
-          currentCommit=$(echo $commits | cut -d' ' -f1)
-          lastCommit=$(echo $commits | cut -d' ' -f2)
-          git show --stat $currentCommit
-          git show --stat $lastCommit
+          git show -U99999
+
 
 
       - name: Update plugin version
