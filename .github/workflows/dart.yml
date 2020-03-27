@@ -17,7 +17,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
         run: |
-          git checkout -b master origin/master
+          git checkout -b master_temp origin/master
           git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
       
       - name: Update plugin version
