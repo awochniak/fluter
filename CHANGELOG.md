@@ -949,3 +949,12 @@ lib/transfer/trn_request_params.dart
 pubspec.lock
 pubspec.yaml
 test.txt
+
+
+## 1.0.18
+
+commit 0c38769da8494b194fd5eb071facb340a89cd987
+Author: awochniak <45997707+awochniak@users.noreply.github.com>
+Date:   Fri Mar 27 09:28:47 2020 +0100
+
+    library file version 5
