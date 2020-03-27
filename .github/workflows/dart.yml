@@ -35,9 +35,10 @@ jobs:
           echo "" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           echo -n "## " >> CHANGELOG.md
-          echo "$newVersion - $platform, $version" >> CHANGELOG.md
+          echo "$newVersion >> CHANGELOG.md
           echo "" >> CHANGELOG.md
-
+          echo "* Add new library for $platform, version: $version" >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
 
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
