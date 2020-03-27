@@ -18,14 +18,12 @@ jobs:
           lastNumber=$(echo $version | grep -Eo '[0-9]+$')
           lastNumber=$((lastNumber+1))
           newVersion=$(echo "${version%.*}.${lastNumber}")
-          
-          
+    
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           fileName=$(git log --name-only --oneline HEAD --format= | grep -v '.{7} ')
           fileName2=$(git show --pretty="" --name-only $git_hash)
-          fileName3=$(git diff-tree --no-commit-id --name-only -r $git_hash)
-          
-          git diff-tree --no-commit-id --name-only -r $git_hash
+          fileName3=$(git status)
+                    
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
 
           echo "" >> CHANGELOG.md
