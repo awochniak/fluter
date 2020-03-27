@@ -18,6 +18,7 @@ jobs:
           lastNumber=$(echo $version | grep -Eo '[0-9]+$')
           lastNumber=$((lastNumber+1))
           newVersion=$(echo "${version%.*}.${lastNumber}")
+          fileName=$(git log --name-only --oneline -1 --format= | grep -v '.{7} ')
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
 
           echo "" >> CHANGELOG.md
@@ -25,7 +26,7 @@ jobs:
           echo -n "## " >> CHANGELOG.md
           echo "$newVersion" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
-          echo -n "$(git diff-tree --no-commit-id --name-only)" >> CHANGELOG.md
+          echo "$filename" >> CHANGELOG.md
 
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
