@@ -19,6 +19,7 @@ jobs:
           lastNumber=$((lastNumber+1))
           newVersion=$(echo "${version%.*}.${lastNumber}")
           
+          
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           fileName=$(git log --name-only --oneline HEAD --format= | grep -v '.{7} ')
           fileName2=$(git show --pretty="" --name-only $git_hash)
