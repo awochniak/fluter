@@ -7,7 +7,7 @@ jobs:
   release:
     name: Release new plugin version to pub.dev
     runs-on: ubuntu-latest
-    if: startsWith(github.event.commits[0].message, 'library file version')
+    if: startsWith(github.event.commits[0].message, 'New library version')
     container:
       image:  google/dart:latest
     steps:
@@ -21,19 +21,17 @@ jobs:
           lastNumber=$(echo $version | grep -Eo '[0-9]+$')
           lastNumber=$((lastNumber+1))
           newVersion=$(echo "${version%.*}.${lastNumber}")
-    
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          fileName=$(git log --name-only --oneline HEAD --format= | grep -v '.{7} ')
-          fileName2=$(git show --pretty="" --name-only $git_hash)     
-          
-          
-          echo "$commit_msg"
+
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
+          
+          info=$(echo ${commit_msg//[[:blank:]]/} | cut -d ':' -f2)
+          platform=$(echo $info | cut -d ',' -f1)
+          version=$(echo $info | cut -d ',' -f2)
 
           echo "" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           echo -n "## " >> CHANGELOG.md
-          echo "$newVersion" >> CHANGELOG.md
+          echo "$newVersion - $platform, $version" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
 
 
