@@ -26,7 +26,7 @@ jobs:
           echo -n "## " >> CHANGELOG.md
           echo "$newVersion" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
-          echo "$filename" >> CHANGELOG.md
+          echo "$fileName" >> CHANGELOG.md
 
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
