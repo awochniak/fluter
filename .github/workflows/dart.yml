@@ -16,7 +16,8 @@ jobs:
       - name : GITHUB CONTEXT
         env:
           GITHUB_CONTEXT: ${{ (github.event.commits[0].id) }}
-        run: git diff-tree --no-commit-id --name-only -r $GITHUB_CONTEXT
+        run: |
+           git diff-tree --no-commit-id --name-only -r $GITHUB_CONTEXT
 
       
       - name: Update plugin version
