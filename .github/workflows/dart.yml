@@ -24,7 +24,7 @@ jobs:
 
           sed -i "s/^version: .*$/version: $newVersion/" pubspec.yaml
           
-          info=$(echo ${commit_msg//[[:blank:]]/} | cut -d ':' -f2)
+          info=$(echo $commit_msg | cut -d ':' -f2)
           platform=$(echo $info | cut -d ',' -f1)
           version=$(echo $info | cut -d ',' -f2)
           
