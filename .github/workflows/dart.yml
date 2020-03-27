@@ -30,7 +30,7 @@ jobs:
           echo -n "## " >> CHANGELOG.md
           echo "$newVersion" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
-          echo "$fileName2" >> CHANGELOG.md
+          echo "$git_hash" >> CHANGELOG.md
 
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
